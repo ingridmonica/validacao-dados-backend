@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola Virtual - Formulário de Pré-Matrícula</title>
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+    <h1>Escola Virtual</h1>
+    <h2>Formulário de Pré-Matrícula</h2>
+
+    <% if (errors.length > 0) { %>
+        <div class="error">
+            <h3>O formulário contém erros:</h3>
+            <ul>
+                <% errors.forEach(function(error) { %>
+                    <li><%= error %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+
+    <% if (success) { %>
+        <div class="success">
+            <h3><%= success %></h3>
+        </div>
+    <% } %>
+
+    <form action="/submit" method="POST" class="formulario">
+        <fieldset class="fieldset">
+            <legend>Dados Pessoais</legend>
+            <label for="nomeAluno">Nome do Aluno:</label>
+            <input type="text" name="nomeAluno" id="nomeAluno" class="input-field" value="<%= nomeAluno %>" required>
+
+            <label for="nascimento">Nascimento (dd/mm/aaaa):</label>
+            <input type="text" name="nascimento" id="nascimento" class="input-field" required>
+
+            <label for="nomeMae">Nome da Mãe:</label>
+            <input type="text" name="nomeMae" id="nomeMae" class="input-field" required>
+
+            <label for="nomePai">Nome do Pai:</label>
+            <input type="text" name="nomePai" id="nomePai" class="input-field" required>
+
+            <label for="telefone">Telefone:</label>
+            <input class="input-ddd" type="text" id="ddd" name="ddd" placeholder="DDD" required>
+            <input class="input-telefone" type="tel" id="telefone" name="telefone" required>
+
+            <label for="email">E-Mail:</label>
+            <input type="email" name="email" id="email" class="input-field" required>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend>Informações de Matrícula</legend>
+            <label for="serie">Série:</label>
+            <select name="serie" id="serie" class="input-field" required>
+                <option value="pré-escolar">pré-escolar</option>
+                <option value="fundamental1">Fundamental 1</option>
+                <option value="fundamental2">Fundamental 2</option>
+                <option value="medio">Ensino Médio</option>
+            </select>
+
+            <div>
+                <label>Turno:</label>
+                <label><input type="radio" name="turno" value="manhã" required> Manhã</label>
+                <label><input type="radio" name="turno" value="tarde" required> Tarde</label>
+            </div>
+
+            <div>
+                <label class="subtitulo" >Atividades Extracurriculares:</label>
+                <div>
+                    <label><input type="checkbox" name="atividades" value="Informática"> Informática</label>
+                    <label><input type="checkbox" name="atividades" value="Música"> Música</label>
+                    <label><input type="checkbox" name="atividades" value="Balet"> Balet</label>
+                    <label><input type="checkbox" name="atividades" value="Pintura"> Pintura</label>
+                    <label><input type="checkbox" name="atividades" value="Judô"> Judô</label>
+                    <label><input type="checkbox" name="atividades" value="Futebol"> Futebol</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <button type="submit" class="btn-enviar">Enviar Formulário</button>
+    </form>
+</body>
+</html>
