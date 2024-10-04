@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/submit', (req, res) => {
-    let { nomeAluno, nascimento, email, ddd, telefone, serie, turno, atividades } = req.body; // Mudando para let
+    let { nomeAluno, nascimento, email, ddd, telefone, serie, turno, atividades } = req.body; 
     let errors = [];
 
     if (!nomeAluno || !nascimento || !email || !ddd || !telefone || !serie || !turno) {

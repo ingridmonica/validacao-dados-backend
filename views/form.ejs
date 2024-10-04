@@ -10,7 +10,8 @@
     <h1>Escola Virtual</h1>
     <h2>Formulário de Pré-Matrícula</h2>
 
-    <% if (errors.length > 0) { %>
+
+    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
         <div class="error">
             <h3>O formulário contém erros:</h3>
             <ul>
@@ -20,6 +21,8 @@
             </ul>
         </div>
     <% } %>
+
+ 
 
     <% if (success) { %>
         <div class="success">
